@@ -25,28 +25,24 @@ It wrote the code, ran away, and now the game is unplayable.
 
 ## 📝 Document Your Experience
 
-- [ ] Describe the game's purpose.
-- [ ] Detail which bugs you found.
-- [ ] Explain what fixes you applied.
+- The game is a Streamlit number-guessing app where the player selects a difficulty, submits guesses, and receives higher/lower hints until they find the secret number.
+- I found that the difficulty boundaries were reversed for Normal and Hard modes, the New Game reset used a hardcoded 1-100 secret range, and out-of-range guesses were accepted without validation.
+- I fixed the bug by moving core game logic into `logic_utils.py`, correcting the difficulty range mapping, adding guess range validation, and keeping the UI state consistent across reruns.
 
 ## 📸 Demo Walkthrough
 
 Describe your fixed game in numbered steps so a reader can follow along without watching a video:
 
-1. <!-- Describe this step -->
-2. <!-- Describe this step -->
-3. <!-- Describe this step -->
-4. <!-- Describe this step -->
-5. <!-- Add more steps as needed -->
-
-**Screenshot** *(optional)*: <!-- Insert a screenshot of your fixed, winning game here -->
+1. The player chooses a difficulty level from the sidebar and sees the correct range displayed, such as `1 to 20` for Easy.
+2. The player enters a guess and clicks `Submit Guess`; the app parses the input and validates that it is a number inside the current range.
+3. If the guess is too low, the app returns `Too Low` and asks the player to go higher; if the guess is too high, it returns `Too High` and asks the player to go lower.
+4. The score updates after each guess based on the number of attempts and whether the guess was too high, too low, or correct.
+5. When the player guesses the secret number, the app displays a win message with the final score and balloons, and the game prevents further play until `New Game` is clicked.
 
 ## 🧪 Test Results
 
 ```
-# Paste your pytest output here, e.g.:
-# pytest tests/
-# ========================= X passed in 0.XXs =========================
+4 passed
 ```
 
 ## 🚀 Stretch Features

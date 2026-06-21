@@ -56,12 +56,21 @@ Document at least 3 bugs you found. Add rows as needed.
 ## 4. What did you learn about Streamlit and state?
 
 - How would you explain Streamlit "reruns" and session state to a friend who has never used Streamlit?
+  Streamlit is much faster and easier to set up than Flask — in just a few lines of code, you have a working application without the larger setup overhead. Every time a user interacts with the app (clicks a button, changes a slider), Streamlit reruns your entire script from top to bottom, which could reset all variables. Session state is a dictionary that persists variables *across* those reruns, so your game data like the secret number and attempt count don't get lost when you click Submit Guess. This makes Streamlit ideal for ML and Data Science projects where you want rapid prototyping without traditional web framework complexity.
 
 ---
 
 ## 5. Looking ahead: your developer habits
 
 - What is one habit or strategy from this project that you want to reuse in future labs or projects?
+  In this project I liked how rather than telling the AI what was wrong and telling it to fix it, and then not realizing the AI made mistake. Rather, I created a strategy by giving the AI context and explained it with strong details why this part of the code confused me. So, then I could narrow down where I want the AI to focus and understand the mistake and fix it.  So the habit, I want to fix is not vibe coding and blindly accepting what the AI suggests but trying to understand and testing how the program should work.
+
   - This could be a testing habit, a prompting strategy, or a way you used Git.
+
 - What is one thing you would do differently next time you work with AI on a coding task?
+
+I would review the entire codebase systematically before asking AI to make changes—reading through all the functions to understand the relationships between them—rather than jumping straight to asking for fixes. This would help me spot logic errors earlier and ask more targeted questions."
+
 - In one or two sentences, describe how this project changed the way you think about AI generated code.
+AI-generated code is a starting point, not a finished product—it requires careful review, testing, and critical thinking to catch silent logic bugs that could break the application. I learned that the real skill is knowing how to collaborate with AI by asking the right questions and verifying the results, not just accepting what it produces.
+
